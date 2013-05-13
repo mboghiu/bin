@@ -1,0 +1,3 @@
+rsync -avz --delete /home/maria/Documents/ /media/BigFred/maria/Documents/
+rsync -avz --delete /home/maria/ /media/BigFred/maria/
+rsync -t *.lyx /media/BigFred/maria/Documents/

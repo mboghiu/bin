@@ -1,0 +1,9 @@
+#!/bin/bash
+texFile=$1'.tex';
+auxFile=$1'.aux';
+pdfFile=$1'.pdf';
+
+pdflatex $texFile;
+bibtex $auxFile;
+pdflatex $texFile;
+pdflatex $texFile;

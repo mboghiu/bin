@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Download Config folder from Git
+echo "Getting contents of config from GitHub...."
+
+# Run symlinks in your home directory
+pushd .
+cd ~
+if [ -f .vimrc ]; then
+  rm .vimrc
+fi
+if [ -f .vimrc ]; then
+  rm .bashrc
+fi
+
+echo "Linking config files...."
+ln -s Configs/.xsession .
+ln -s Configs/.bashrc .
+ln -s Configs/.vimrc .
+ln -s Configs/.conkyrc .
+ln -s Configs/.Xdefaults .
+ln -s Configs/.Xresources .
+ln -s Configs/.getmailrc .
+ln -s Configs/.muttrc .
+
+# Symlinks to directories too
+ln -s Configs/.vim .
+ln -s Configs/.xmonad/ .
+
+# Install required packages
+echo "Installing Xmonad & Co..."
+sudo aptitude install xmonad
+sudo aptitude install libghc6-xmonad-contrib-dev
+sudo aptitude install libghc6-xmonad-contrib-doc
+sudo aptitude install libghc6-xmonad-contrib-prof
+sudo aptitude install libghc6-xmonad-dev
+sudo aptitude install libghc6-xmonad-doc
+sudo aptitude install libghc6-xmonad-prof
+sudo aptitude install libghc-xmonad-contrib-prof
+sudo aptitude install libghc-xmonad-prof
+
+echo "Installing various other things...."
+sudo aptitude install guake
+sudo aptitude install conky-std
+sudo aptitude install suckless-tools
+sudo aptitude install trayer
+sudo aptitude install xscreensaver
+sudo aptitude install fluxbox
+sudo aptitude install vim-tiny
+sudo aptitude install rxvt-unicode-lite
+sudo aptitude install mutt
+
+popd
